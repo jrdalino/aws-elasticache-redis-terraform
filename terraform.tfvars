@@ -2,7 +2,7 @@
 aws_region  = "ap-southeast-1"
 aws_account = "707538076348"
 
-# ECR Repository
+# Elasticache Cluster
 aws_elasticache_cluster_cluster_id           = "myproject-elasticache-cart"
 aws_elasticache_cluster_engine               = "redis"
 aws_elasticache_cluster_engine_version       = "5.0.6"
