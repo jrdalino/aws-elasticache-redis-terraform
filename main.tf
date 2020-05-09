@@ -21,3 +21,4 @@ resource "aws_elasticache_cluster" "this" {
   # availability_zone
   # preferred_availability_zones 
   # tags
+}
