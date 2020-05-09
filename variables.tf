@@ -44,3 +44,13 @@ variable "aws_elasticache_cluster_port" {
   type        = string
   description = "(Optional) The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with replication_group_id."
 }
+
+variable "aws_elasticache_cluster_subnet_group_name" {
+  type        = string
+  description = "(Optional, VPC only) Name of the subnet group to be used for the cache cluster."
+}
+
+variable "aws_elasticache_cluster_security_group_ids" {
+  type        = string
+  description = "(Optional, VPC only) One or more VPC security groups associated with the cache cluster"
+}

@@ -8,9 +8,9 @@ resource "aws_elasticache_cluster" "this" {
   num_cache_nodes      = var.aws_elasticache_cluster_num_cache_nodes
   parameter_group_name = var.aws_elasticache_cluster_parameter_group_name
   port                 = var.aws_elasticache_cluster_port
-  # subnet_group_name 
+  subnet_group_name    = var.aws_elasticache_cluster_subnet_group_name
   # security_group_names
-  # security_group_ids
+  security_group_ids   = [var.aws_elasticache_cluster_security_group_ids]
   # apply_immediately
   # snapshot_arns
   # snapshot_name
