@@ -28,7 +28,7 @@ $ terraform apply
 Include this repository as a module in your existing terraform code:
 ```
 module "elasticache" {
-  source = "git::https://github.com/jrdalino/aws-elasticache-terraform.git?ref=master"
+  source = "git::https://github.com/jrdalino/aws-elasticache-redis-terraform.git?ref=master"
 }
 ```
 

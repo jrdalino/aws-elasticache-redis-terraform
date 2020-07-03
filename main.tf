@@ -1,24 +1,29 @@
 resource "aws_elasticache_cluster" "this" {
   cluster_id           = var.aws_elasticache_cluster_cluster_id
-  # replication_group_id 
-  engine               = var.aws_elasticache_cluster_engine
-  engine_version       = var.aws_elasticache_cluster_engine_version
-  # maintenance_window 
-  node_type            = var.aws_elasticache_cluster_node_type
-  num_cache_nodes      = var.aws_elasticache_cluster_num_cache_nodes
-  parameter_group_name = var.aws_elasticache_cluster_parameter_group_name
-  port                 = var.aws_elasticache_cluster_port
-  subnet_group_name    = var.aws_elasticache_cluster_subnet_group_name
-  # security_group_names
-  security_group_ids   = [var.aws_elasticache_cluster_security_group_ids]
-  # apply_immediately
+  engine               = "redis"
+  engine_version       = "5.0.6" # https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html
+  maintenance_window   = "sun:05:00-sun:09:00"
+  node_type            = "cache.t3.micro"
+  num_cache_nodes      = 1
+  parameter_group_name = "default.redis5.0"
+  port                 = 6379
+  subnet_group_name    = aws_elasticache_subnet_group.this.name
+  security_group_ids   = [var.aws_security_group_id]
+  apply_immediately    = false
   # snapshot_arns
   # snapshot_name
   # snapshot_window 
   # snapshot_retention_limit
   # notification_topic_arn
-  # az_mode
   # availability_zone
-  # preferred_availability_zones 
-  # tags
+
+  tags = {
+    Namespace = var.namespace
+  }
+}
+
+resource "aws_elasticache_subnet_group" "this" {
+  name        = var.aws_elasticache_subnet_group_name
+  description = "Managed by Terraform"
+  subnet_ids  = [var.aws_subnet_id1, var.aws_subnet_id1]
 }

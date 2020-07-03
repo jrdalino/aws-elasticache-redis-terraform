@@ -1,14 +1,15 @@
 # General
 aws_region  = "ap-southeast-1"
 aws_account = "707538076348"
+namespace   = "myproject"
+
+# Network
+aws_subnet_id1        = "subnet-01eab0dca9893bc27"
+aws_subnet_id2        = "subnet-03cd54187004166ae"
+aws_security_group_id = "sg-0fb45cc7b7c191a88"
 
 # Elasticache Cluster
-aws_elasticache_cluster_cluster_id           = "myproject-elasticache-cart"
-aws_elasticache_cluster_engine               = "redis"
-aws_elasticache_cluster_engine_version       = "5.0.6"
-aws_elasticache_cluster_node_type            = "cache.t3.micro"
-aws_elasticache_cluster_num_cache_nodes      = "1"
-aws_elasticache_cluster_parameter_group_name = "default.redis5.0"
-aws_elasticache_cluster_port                 = "6379"
-aws_elasticache_cluster_subnet_group_name    = "<REPLACE_ME>"
-aws_elasticache_cluster_security_group_ids   = "<REPLACE_ME>"
+aws_elasticache_cluster_cluster_id = "myproject-elasticache-cart"
+
+# ElastiCache Subnet Group
+aws_elasticache_subnet_group_name = "myproject-elasticache-cart-subnet-group"
